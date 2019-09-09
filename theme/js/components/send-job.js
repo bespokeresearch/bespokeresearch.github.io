@@ -1,3 +1,7 @@
+/*
+-- Submission disabled: (removed url and key for now)
+*/
+
 Vue.component('send-job', {
   template: '#send-job-template',
   data: function () {
@@ -101,7 +105,7 @@ Vue.component('send-job', {
 
         self = this
         axios({
-            url: 'https://vv758wqt2h.execute-api.us-east-1.amazonaws.com/dev/task_submit',
+            url: 'https://unknown.execute-api.us-east-1.amazonaws.com/dev/task_submit',
             method: 'get',
             headers: headers
         }).then(function(res) {
@@ -156,7 +160,7 @@ Vue.component('send-job', {
         jobFormData.set('session_id', sessionId)
 
         axios({
-            url: 'https://vv758wqt2h.execute-api.us-east-1.amazonaws.com/dev/task_submit',
+            url: 'https://unknown.execute-api.us-east-1.amazonaws.com/dev/task_submit',
             method: 'post',
             headers: {'x-api-key':'', 'Content-Type': 'multipart/form-data'},
             data: jobFormData
