@@ -4,9 +4,9 @@ Vue.component('send-job', {
       return {
         filename: 'Choose file',
 
-        formDataEmail: 'testuser5628@gmail.com',
-        formDataPrice: '10.00',
-        formDataMessage: 'New Test Message',
+        formDataEmail: '',
+        formDataPrice: '',
+        formDataMessage: '',
 
         submitFormDataElementsClassDisplay: '',
         submitButtonClassDisplay: '',
@@ -35,7 +35,7 @@ Vue.component('send-job', {
 
     sendJob: function(){
       console.log('Pressed Send Job')
-      this.uploadFile();
+//      this.uploadFile();
     },
 
     uiSubmitStart: function(){
@@ -95,7 +95,7 @@ Vue.component('send-job', {
         this.uiSubmitStart();
 
         var headers = {};
-        headers['x-api-key'] = 'CiFDhNdkM298ntubIc3rr1zTmJjURn2e5SpDA2Zk';
+        headers['x-api-key'] = '';
         if(this.$refs.jobFile.files.length > 0)
             headers['x-filename'] = this.$refs.jobFile.files[0].name;
 
@@ -158,7 +158,7 @@ Vue.component('send-job', {
         axios({
             url: 'https://vv758wqt2h.execute-api.us-east-1.amazonaws.com/dev/task_submit',
             method: 'post',
-            headers: {'x-api-key':'CiFDhNdkM298ntubIc3rr1zTmJjURn2e5SpDA2Zk', 'Content-Type': 'multipart/form-data'},
+            headers: {'x-api-key':'', 'Content-Type': 'multipart/form-data'},
             data: jobFormData
         }).then(function(res) {
             self.uiSubmitSuccess();
