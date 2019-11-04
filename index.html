@@ -2,175 +2,313 @@
 <html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head profile="http://www.w3.org/2005/10/profile">
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141684358-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141684358-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-    gtag('config', 'UA-141684358-1', { 'optimize_id': 'GTM-WNXG5HP'});
-  </script>
+      gtag('config', 'UA-141684358-1', { 'optimize_id': 'GTM-WNXG5HP'});
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Simple solutions for complex problems" />
+    <meta name="author" content="Bespoke Research">
+    <meta name="keywords" content="business, consulting, task, job, easy">
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="referrer" content="origin" />
+    <meta name="google-site-verification" content="bcwhGVlAJrPDn4xDJU2sE-v3FjIa3DP9mhKcfr2L8l8" />
 
-  <link rel="icon" type="image/png" href="/img/favicon.png" />
-  <link href="theme/css/main.css" rel="stylesheet">
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Simple solutions for complex problems" />
-  <meta name="author" content="Bespoke Research">
-  <meta name="keywords" content="business, consulting, task, job, easy">
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="referrer" content="origin" />
-  <meta name="google-site-verification" content="bcwhGVlAJrPDn4xDJU2sE-v3FjIa3DP9mhKcfr2L8l8" />
-
-
-  <meta property="og:site_name" content="Bespoke Research Ad Infinitum"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Bespoke Research Ad Infinitum"/>
-  <meta property="og:description" content="Simple solutions for complex problems"/>
-  <meta property="og:locale" content="en_US"/>
-  <meta property="og:url" content="https://www.br8.ca/"/>
-  <meta property="og:image" content="https://www.br8.ca/img/home-bg.png">
+    <meta property="og:site_name" content="Bespoke Research Ad Infinitum"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Bespoke Research Ad Infinitum"/>
+    <meta property="og:description" content="Simple solutions for complex problems"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:url" content="https://www.br8.ca/"/>
+    <meta property="og:image" content="https://www.br8.ca/img/home-bg.png">
 
 
-  <title>Bespoke Research Ad Infinitum</title>
+    <title>Bespoke Research Ad Infinitum</title>
 
-  <link rel="canonical" href="https://www.br8.ca/"  />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="/theme/img/favicon.png" />
+    <link rel="canonical" href="https://www.br8.ca/"  />
+    <link href="theme/css/bootstrap-br8.css" rel="stylesheet">
 
-</head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-<body id="page-top">
+    <link href="theme/css/main.css" rel="stylesheet">
 
-  <div id="app">
-    <send-job></send-job>
-  </div>
+  </head>
 
+  <body id="page-top">
 
-  <script id="send-job-template" type="text/x-template">
-    <section>
-      <div class="collapse show" >
-        <div class="card card-body border-0 p-0" style="background-color:inherit;">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12 text-center">
-                <h2 class="section-heading text-uppercase">Send Job</h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-12">
-                <form id="contactForm" name="sentMessage" class="needs-validation" novalidate="novalidate">
-                  <div :class="[submitFormDataElementsClassDisplay]">
-                    <div class="row">
-                      <div class="offset-lg-3 col-lg-6 text-center">
-                        <div class="form-group">
-                          <input v-model="formDataEmail" class="form-control email" id="email" type="email" placeholder="Your Email *" required="required">
-                          <p class="help-block text-danger"></p>
-                          <div class="invalid-tooltip">
-                            Please enter valid email
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="offset-lg-3 col-lg-6 text-center">
-                        <div class="form-group">
-                          <input v-model="formDataPrice" class="form-control price" id="price" type="email" placeholder="Your Price *" required="required">
-                          <p class="help-block text-danger"></p>
-                          <div class="invalid-tooltip">
-                            Please enter price
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="offset-lg-3 col-lg-6 text-center">
-                        <div class="form-group">
-                          <textarea v-model="formDataMessage" class="form-control" id="message" placeholder="Your Message *" required="required"></textarea>
-                          <p class="help-block text-danger"></p>
-                          <div class="invalid-tooltip">
-                            Please enter your task description
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="offset-lg-3 col-lg-6 text-center mb-3">
-                        <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="uploadFile" @change="uploadSetFileName"
-                              ref="jobFile">
-                            <label class="custom-file-label" for="uploadFile"  >{{ filename }}</label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+<!--        <a class="navbar-brand js-scroll-trigger" href="#page-top">BR8</a>-->
+        <div class="navbar-brand js-scroll-trigger">
+          <a href="#"><img  src="theme/img/logos/log-ag.png" width="40px" height="40px"/></a>
+        </div>
+      </div>
+    </nav>
+    <header class="masthead">
+      <div class="container">
+        <div class="intro-text">
+          <div class="intro-heading text-uppercase">Bespoke Research</div>
+          <div class="intro-lead-in">Focus on your business, let us handle the details.</div>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger header-action-button" href="#services"><i class="fas fa-infinity"></i> &nbsp;Tell Me More</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Simple as 1-2-3</h2>
+            <h3 class="section-subheading text-muted">&nbsp;</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="timeline">
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="theme/img/about/1.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>1. Send us your job</h4>
                   </div>
-                  <div class="row">
-                    <div class="offset-lg-3 col-lg-6 text-center">
-                      <div id="success"></div>
-                      <div class="g-recaptcha"
-                            data-sitekey="6LcE86cUAAAAAOskz_jX_RkHR1UMzuDHtq8j65Dy"
-                            data-callback="sendMessage"
-                            data-size="invisible"
-                            >
-                      </div>
-
-                      <div class="progress" :class="[uploadProgressBarClassDisplay]">
-                        <div ref="uploadProgress" class="progress-bar progress-bar-striped " role="progressbar"  :style="uploadProgressBarStyle" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <div class="alert" role="alert" :class="[uploadProgressAlertClass]" >
-                        {{ uploadProgressAlertText }}
-                      </div>
-
-                      <div class="alert" role="alert" :class="[taskSubmitProgressAlertClass]" >
-                       <i class="fa fa-spinner fa-pulse fa-1x fa-fw" :class="[taskSubmitProgressSpinnerClass]"></i>  {{ taskSubmitProgressAlertText }}
-                      </div>
-
-                      <button ref="submitButton" :class="[submitButtonClassDisplay]" id="submit-button" type="submit" class="btn btn-primary btn-xl text-uppercase"  @click.prevent="sendJob()">
-                        Submit Job
-                      </button>
-                    </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">No registration necessary. Describe your task, attach your documents and we will take over from there!</p>
                   </div>
-                </form>
-              </div>
-            </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="theme/img/about/2.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>2. Receive estimate</h4>
+<!--                    <h4 class="subheading"></h4>-->
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">We will send no obligation estimate over the email. As soon as you accept, we will start working on your task and send you updates on the progress.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="theme/img/about/3.jpg" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>3. Collect results</h4>
+<!--                    <h4 class="subheading">Transition to Full Service</h4>-->
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">Once the work is completed you will receive a sample of the final result that you can review and purchase the complete package.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                   <h4><a href="#send" class="timeline-action">Send
+                    <br>Your
+                     <br>Task!</a></h4>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
 
+    <a name="services"></a>
+    <section class="bg-light" id="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">How we can help</h2>
+            <h3 class="section-subheading text-muted">Here are some of the services that we provide.</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#send">
+              <img class="img-fluid" src="theme/img/portfolio/01-thumbnail.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4><a href="#send" class="service-action">Data mining</a></h4>
+              <p class="text-muted">Research and collect data online, format it as a spreadsheet, document or summary presentation.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#send">
+              <img class="img-fluid" src="theme/img/portfolio/02-thumbnail.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4><a href="#send" class="service-action">Document conversion</a></h4>
+              <p class="text-muted">Accomplish complex document conversion tasks from and to formats like Word, Excel, PDF, CSV, plain text.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#send">
+              <img class="img-fluid" src="theme/img/portfolio/04-thumbnail.jpg" alt="">
+            </a>
+            <div class="portfolio-caption">
+              <h4><a href="#send" class="service-action">Custom</a></h4>
+              <p class="text-muted">Looking for different software solution? Send us your task and we will be glad to provide you an estimate!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a name="send"></a>
+    <section id="contact">
+      <div class="container" id="app">
+        <div class="row">
+
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Send Your Task</h2>
+            <h3 class="section-subheading text-muted">No registration or payment necessary. You pay only if you like the results. Try now!</h3>
+          </div>
+        </div>
+        <send-job></send-job>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">&copy; Bespoke Research Ad Infinitum </span>
+          </div>
+
+<!--          <div class="col-md-4">-->
+<!--            <ul class="list-inline social-buttons">-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-twitter"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-facebook"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="list-inline-item">-->
+<!--                <a href="#">-->
+<!--                  <i class="fab fa-linkedin"></i>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </div>-->
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="/privacy.html" target="_blank">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="/terms.html" target="_blank">Terms of Service</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+
+
+  <script id="send-job-template" type="text/x-template">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <form id="contactForm" name="sentMessage" novalidate="novalidate">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your name.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                  </div>
+                  <input class="form-control" id="price" type="text" placeholder="Your price *" required="required" data-validation-required-message="Please enter your price.">
+                  <p class="help-block text-danger"></p>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="uploadFile" @change="uploadSetFileName"
+                      ref="jobFile">
+                    <label class="custom-file-label" for="uploadFile"  ><div  class="upload-text" >{{ filename }}</div></label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input big-checkbox" type="checkbox" value="" id="tosCheck">
+                  <label class="form-check-label" for="tosCheck">
+                    I agree to <a href="/terms.html" target="_blank">Terms of Service</a> and <a href="/privacy.html" target="_blank">Privacy Policy</a>
+                  </label>
+                </div>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <textarea class="form-control" id="description" placeholder="Your job description *" required="required" data-validation-required-message="Please your job description."></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12 text-center">
+                <div class="offset-lg-3 col-lg-6 text-center" :style="uploadProgressBarStyle">
+                  <div id="success"></div>
+                  <div class="g-recaptcha"
+                        data-sitekey="6LcE86cUAAAAAOskz_jX_RkHR1UMzuDHtq8j65Dy"
+                        data-callback="sendMessage"
+                        data-size="invisible"
+                        >
+                  </div>
+                  <div class="progress" >
+                    <div ref="uploadProgress" class="progress-bar progress-bar-striped " role="progressbar"  :style="uploadProgressBarStyle" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <div class="alert alert-success" role="alert" :class="[uploadSuccessClassDisplay]" >
+                    Upload Completed Successfully
+                  </div>
+                </div>
+                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase send-button" type="submit" @click.prevent="sendJob()"><i class="fas fa-paper-plane fa-sm"></i> &nbsp;Send</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </script>
 
-</body>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.7/vue-router.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js'></script>
-<script src="theme/js/components/send-job.js"></script>
-<script src="theme/js/app.js"></script>
-<!--<script src="theme/js/main.js"></script>-->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.7/vue-router.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js'></script>
 
-
-
-<!--  <script type="text/javascript">-->
-<!--      var _gaq = _gaq || [];-->
-<!--      _gaq.push(['_setAccount', 'UA-141684358-1']);-->
-<!--      _gaq.push(['_trackPageview']);-->
-<!--      (function() {-->
-<!--          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
-<!--          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';-->
-<!--          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);-->
-<!--      })();-->
-<!--    </script>-->
+  <script src="theme/js/components/send-job.js"></script>
+  <script src="theme/js/app.js"></script>
 
 
 </html>

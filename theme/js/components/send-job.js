@@ -6,7 +6,7 @@ Vue.component('send-job', {
   template: '#send-job-template',
   data: function () {
       return {
-        filename: 'Choose file',
+        filename: 'Choose file (up to 10mb)',
 
         formDataEmail: '',
         formDataPrice: '',
@@ -17,7 +17,8 @@ Vue.component('send-job', {
 
         uploadProgressBarClassDisplay: 'd-none',
         uploadProgressBarStyle: {
-            'width': '0%'
+            'width': '0%',
+            'display': 'none'
         },
         uploadSuccessClassDisplay: 'd-none',
         uploadProgressAlertText: 'Uploading the file',
@@ -39,7 +40,7 @@ Vue.component('send-job', {
 
     sendJob: function(){
       console.log('Pressed Send Job')
-//      this.uploadFile();
+      this.uploadFileMain();
     },
 
     uiSubmitStart: function(){
