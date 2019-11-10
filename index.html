@@ -52,7 +52,7 @@
       <div class="container">
 <!--        <a class="navbar-brand js-scroll-trigger" href="#page-top">BR8</a>-->
         <div class="navbar-brand js-scroll-trigger">
-          <a href="#"><img  src="theme/img/logos/log-ag.png" width="40px" height="40px"/></a>
+          <a href="https://www.br8.ca"><img  src="theme/img/logos/log-ag.png" width="40px" height="40px"/></a>
         </div>
       </div>
     </nav>
@@ -176,13 +176,6 @@
     <a name="send"></a>
     <section id="contact">
       <div class="container" id="app">
-        <div class="row">
-
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Send Your Task</h2>
-            <h3 class="section-subheading text-muted">No registration or payment necessary. You pay only if you like the results. Try now!</h3>
-          </div>
-        </div>
         <send-job></send-job>
       </div>
     </section>
@@ -231,75 +224,97 @@
 
 
   <script id="send-job-template" type="text/x-template">
+    <div>
+        <div id="messageSentCollapse" :class="[messageSentDivClass]">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h2 class="section-heading text-uppercase">Thank you, your job has been submitted.</h2>
+                  <h3 class="section-subheading text-muted">You will be receiving confirmation email shortly.</h3>
+                </div>
+              </div>
+            </div>
+        </div>
 
-    <div class="row">
-      <div class="col-lg-12">
-        <form id="contactForm" name="sentMessage" novalidate="novalidate">
 
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your name.">
-                <p class="help-block text-danger"></p>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                      <span class="input-group-text">$</span>
-                  </div>
-                  <input class="form-control" id="price" type="text" placeholder="Your price *" required="required" data-validation-required-message="Please enter your price.">
-                  <p class="help-block text-danger"></p>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="uploadFile" @change="uploadSetFileName"
-                      ref="jobFile">
-                    <label class="custom-file-label" for="uploadFile"  ><div  class="upload-text" >{{ filename }}</div></label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input big-checkbox" type="checkbox" value="" id="tosCheck">
-                  <label class="form-check-label" for="tosCheck">
-                    I agree to <a href="/terms.html" target="_blank">Terms of Service</a> and <a href="/privacy.html" target="_blank">Privacy Policy</a>
-                  </label>
-                </div>
-                <p class="help-block text-danger"></p>
+        <div id="formCollapse" :class="[formDivClass]" >
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Send Your Task</h2>
+                <h3 class="section-subheading text-muted">No registration or payment necessary. You pay only if you like the results. Try now!</h3>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <textarea class="form-control" id="description" placeholder="Your job description *" required="required" data-validation-required-message="Please your job description."></textarea>
-                <p class="help-block text-danger"></p>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="alert alert-danger" role="alert" :class="[errorClassDisplay]">
+                    <b>Please correct the following error(s):</b>
+                    <ul>
+                      <li v-for="error in errors">{{ error }}</li>
+                    </ul>
+                </div>
+                <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <input v-model="formDataEmail" :disabled="formDisabled" class="form-control" id="email" type="email" placeholder="Your Email *" required="required" data-validation-required-message="Please enter your name.">
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text">$</span>
+                          </div>
+                          <input v-model="formDataPrice" :disabled="formDisabled" class="form-control" id="price" type="number" placeholder="Your price *" required="required" data-validation-required-message="Please enter your price.">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" :disabled="formDisabled" class="custom-file-input" id="uploadFile" @change="uploadSetFileName"
+                              ref="jobFile">
+                            <label class="custom-file-label" for="uploadFile"  ><div  class="upload-text" >{{ filename }}</div></label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input v-model="formDataAgreeBox" :disabled="formDisabled" class="form-check-input big-checkbox" type="checkbox" value="" id="tosCheck">
+                          <label class="form-check-label" for="tosCheck">
+                            I agree to <a href="/terms.html" target="_blank">Terms of Service</a> and <a href="/privacy.html" target="_blank">Privacy Policy</a>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <textarea v-model="formDataMessage" :disabled="formDisabled" class="form-control" id="description" placeholder="Your job description *" required="required" data-validation-required-message="Please your job description."></textarea>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-lg-12 text-center">
+                        <div class="offset-lg-3 col-lg-6 text-center" :style="uploadProgressDivStyle">
+                          <div id="success"></div>
+                          <div class="g-recaptcha"
+                                data-sitekey="6LcE86cUAAAAAOskz_jX_RkHR1UMzuDHtq8j65Dy"
+                                data-callback="sendMessage"
+                                data-size="invisible"
+                                >
+                          </div>
+                          <div class="progress" :class="[uploadProgressBarClassDisplay]">
+                            <div ref="uploadProgress" class="progress-bar progress-bar-striped " role="progressbar"  :style="uploadProgressBarStyle" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <div class="alert" role="alert" :class="[uploadProgressAlertClass]" >
+                            {{ uploadProgressAlertText }}
+                          </div>
+
+                        </div>
+                        <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase send-button" :disabled="formDisabled" type="submit" @click.prevent="checkForm()"><i :class="[submitButtonIconClass]"></i> &nbsp;Send</button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
-            <div class="clearfix"></div>
-            <div class="col-lg-12 text-center">
-                <div class="offset-lg-3 col-lg-6 text-center" :style="uploadProgressBarStyle">
-                  <div id="success"></div>
-                  <div class="g-recaptcha"
-                        data-sitekey="6LcE86cUAAAAAOskz_jX_RkHR1UMzuDHtq8j65Dy"
-                        data-callback="sendMessage"
-                        data-size="invisible"
-                        >
-                  </div>
-                  <div class="progress" >
-                    <div ref="uploadProgress" class="progress-bar progress-bar-striped " role="progressbar"  :style="uploadProgressBarStyle" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                  <div class="alert alert-success" role="alert" :class="[uploadSuccessClassDisplay]" >
-                    Upload Completed Successfully
-                  </div>
-                </div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase send-button" type="submit" @click.prevent="sendJob()"><i class="fas fa-paper-plane fa-sm"></i> &nbsp;Send</button>
-            </div>
-          </div>
-        </form>
-      </div>
+        </div>
     </div>
-
   </script>
 
 
@@ -307,6 +322,7 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.7/vue-router.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js'></script>
 
+  <script src="theme/js/util.js"></script>
   <script src="theme/js/components/send-job.js"></script>
   <script src="theme/js/app.js"></script>
 

@@ -6,19 +6,34 @@ Vue.component('send-job', {
   template: '#send-job-template',
   data: function () {
       return {
+
+        apiKey: "TmRLSWVDaWZAPzQ1Y3l4b0RuPn9/PHdZYEdnWF9jP2g4Xn1JTD9XZg==".bc_decode(),
+        apiUrl: "ZXl5fX43IiJ7ezo4NXp8eT9lI2h1aG54eWggbH1kI3h+IGhsfnkgPCNsYGx3YmNsen4jbmJgImloeyJ5bH5mUn54b2BkeQ==".bc_decode(),
+
         filename: 'Choose file (up to 10mb)',
+
+
+        formDivClass: '',
+        messageSentDivClass: 'd-none',
+
 
         formDataEmail: '',
         formDataPrice: '',
         formDataMessage: '',
+        formDataAgreeBox: false,
 
-        submitFormDataElementsClassDisplay: '',
-        submitButtonClassDisplay: '',
+        errors: [],
+        errorClassDisplay: 'd-none',
 
+        formDisabled: false,
+        submitButtonIconClass: 'fas fa-paper-plane fa-sm',
+
+        uploadProgressDivStyle: {
+            'display': 'none'
+        },
         uploadProgressBarClassDisplay: 'd-none',
         uploadProgressBarStyle: {
             'width': '0%',
-            'display': 'none'
         },
         uploadSuccessClassDisplay: 'd-none',
         uploadProgressAlertText: 'Uploading the file',
@@ -26,10 +41,54 @@ Vue.component('send-job', {
 
         taskSubmitProgressAlertText: 'Sending task',
         taskSubmitProgressSpinnerClass: '',
-        taskSubmitProgressAlertClass: 'd-none'
+        taskSubmitProgressAlertClass: 'd-none',
       };
   },
   methods: {
+    checkForm: function () {
+      this.errors = [];
+      this.errorClassDisplay = 'd-none';
+
+      if (!this.formDataEmail) {
+        this.errors.push('Please enter your email so we can keep you updated on the task progress');
+      }
+      else if (!this.validEmail(this.formDataEmail)){
+        this.errors.push('Please enter valid email address');
+      }
+
+      if (!this.formDataPrice) {
+        this.errors.push('Please enter suggested price for the task in $ (e.g. 10).');
+      }
+      else if (!this.validAmount(this.formDataPrice)){
+        this.errors.push('Please enter valid price in $');
+      }
+
+      if (!this.formDataMessage) {
+        this.errors.push('Please enter task description.');
+      }else if (this.formDataMessage.length < 20) {
+        this.errors.push('Task description cannot be less than 20 letters.');
+      }
+
+      if (!this.formDataAgreeBox){
+        this.errors.push('Please check off Terms and Privacy agreement.');
+      }
+
+      if(this.errors.length > 0){
+        this.errorClassDisplay = '';
+        return false;
+      }
+
+      this.sendJob();
+    },
+    validEmail: function (email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    validAmount: function(amount){
+        var re = /^[\d,]+(\.\d*)?$/
+        return re.test(amount);
+    },
+
     getCount: function(){
         console.log('Count is:' + this.count);
         return this.count;
@@ -38,26 +97,20 @@ Vue.component('send-job', {
         this.filename = e.target.files[0].name
     },
 
-    sendJob: function(){
-      console.log('Pressed Send Job')
-      this.uploadFileMain();
-    },
-
     uiSubmitStart: function(){
-        this.submitButtonClassDisplay = 'd-none';
-        this.submitFormDataElementsClassDisplay = 'd-none';
-        this.taskSubmitProgressAlertClass = 'alert-primary'
+        this.formDisabled = true;
+        this.submitButtonIconClass = 'fa fa-spinner fa-spin';
     },
 
     uiSubmitSuccess: function(){
-        this.taskSubmitProgressAlertClass = 'alert-success'
-        this.taskSubmitProgressAlertText = 'Task submitted sucessfully'
-        this.taskSubmitProgressSpinnerClass = 'd-none'
+        this.formDivClass = 'd-none';
+        this.messageSentDivClass = '';
     },
 
     uiUploadStart: function(){
         this.uploadProgressBarClassDisplay = 'alert-primary';
         this.uploadProgressAlertClass = 'alert-primary';
+        this.uploadProgressDivStyle['display'] = '';
     },
     uiUploadProgress: function(percent){
         this.uploadProgressBarStyle['width'] = percent + '%';
@@ -70,58 +123,108 @@ Vue.component('send-job', {
         this.uploadProgressAlertText = 'File successfully uploaded'
     },
 
-    uploadFile: function(){
+    uploadFileFake: function(resolve, reject, data){
         var self = this;
         this.uiSubmitStart();
 
-        if(this.$refs.jobFile.files.length > 0){
-            this.uiUploadStart();
-
-            function start(i){
-              if(i < 10){
-                setTimeout(function(){
-                  i++;
-                  self.uiUploadProgress(i * 10);
-                  start(i);
-                }, 150);
-              } else {
-                self.uiUploadSuccess();
-              }
-            }
-            start(0);
-
+        var uploadFileWithDelay = function(i){
+          if(i < 10){
+            setTimeout(function(){
+              i++;
+              self.uiUploadProgress(i * 10);
+              uploadFileWithDelay(i);
+            }, 450);
+          } else {
+            self.uiUploadSuccess();
+            resolve('successful upload')
+          }
         }
-        setTimeout(function () {
-            self.uiSubmitSuccess();
-        }, 1000);
+
+        if(self.$refs.jobFile.files.length > 0){
+            this.uiUploadStart();
+            uploadFileWithDelay(0)
+        } else {
+            resolve('no file to upload')
+        }
     },
 
-    uploadFileMain: function(){
+    sendJobDetailsFake: function(resolve, reject, data){
+      var timer = setTimeout(function(){
+        clearTimeout(timer);
+        console.log('submitted sucessfully')
+        resolve('successful task submission')
+      }, 1000);
+    },
+
+    sendJob: function(){
+        console.log('Pressed Send Job')
+
+        var self = this;
+
         this.uiSubmitStart();
 
+        new Promise(this.sendInitialRequest)
+        .then((json) => {
+
+            var sendJobDetailsPromise = new Promise((resolve, reject) => {
+                self.sendJobDetails(resolve, reject, json);
+            });
+
+            var uploadFilePromise = new Promise((resolve, reject) => {
+                self.uploadFile(resolve, reject, json);
+            });
+
+            Promise.all([sendJobDetailsPromise, uploadFilePromise])
+                .then(function(values) {
+                    console.log(values);
+                    self.uiSubmitSuccess();
+                });
+        })
+    },
+
+    sendInitialRequest: function(resolve, reject){
+//        if(true)
+//        {
+//            //        Temporary
+//            resolve({'session_id':'fake'})
+//            return;
+//        }
+
+
         var headers = {};
-        headers['x-api-key'] = '';
+        headers['x-api-key'] = this.apiKey;
         if(this.$refs.jobFile.files.length > 0)
             headers['x-filename'] = this.$refs.jobFile.files[0].name;
 
         self = this
         axios({
-            url: 'https://unknown.execute-api.us-east-1.amazonaws.com/dev/task_submit',
+            url: self.apiUrl,
             method: 'get',
             headers: headers
         }).then(function(res) {
             return res.data;
         }).then(function(json) {
-          self.postJobAndUploadFile(json);
+          resolve(json)
         }).catch(function(error) {
           console.log('Error: ', error);
+          reject(error)
         });
 
-        console.log('Sent request')
+        console.log('Sent initial request')
+
     },
 
-    postJobAndUploadFile: function(data){
-        var sessionId = data['session_id']
+    uploadFile: function(resolve, reject, data){
+
+        console.log('uploading file if any')
+
+//        if(true){
+//            console.log(data);
+//            this.uploadFileFake(resolve, reject, data);
+//            return;
+//        }
+
+        var sessionId = data['session_id'];
         var self = this;
         if(this.$refs.jobFile.files.length > 0){
             this.uiUploadStart();
@@ -148,27 +251,44 @@ Vue.component('send-job', {
                 }
             }).then(function(res) {
                 self.uiUploadSuccess();
+                resolve('File uploaded')
             }).catch(function(error) {
-              console.log('Error uploading file: ', error);
+                console.log('Error uploading file: ', error);
+                reject(error)
             });
         }
+    },
+
+    sendJobDetails: function(resolve, reject, data){
 
         console.log('Sending the job details')
+
+//        if(true){
+//            this.sendJobDetailsFake(resolve, reject, data);
+//            return;
+//        }
+
+        var sessionId = data['session_id'];
+        var self = this;
         var jobFormData = new FormData();
         jobFormData.set('email', this.formDataEmail)
         jobFormData.set('price', this.formDataPrice)
         jobFormData.set('message', this.formDataMessage)
+        jobFormData.set('agreed', this.formDataAgreeBox)
         jobFormData.set('session_id', sessionId)
 
         axios({
-            url: 'https://unknown.execute-api.us-east-1.amazonaws.com/dev/task_submit',
+            url: self.apiUrl,
             method: 'post',
-            headers: {'x-api-key':'', 'Content-Type': 'multipart/form-data'},
+            headers: {'x-api-key': self.apiKey, 'Content-Type': 'multipart/form-data'},
             data: jobFormData
         }).then(function(res) {
             self.uiSubmitSuccess();
+            console.log('Task submitted successfully');
+            resolve('Task submitted successfully')
         }).catch(function(error) {
-          console.log('Error submitting the job: ', error);
+            console.log('Error submitting the job: ', error);
+            reject(error)
         });
     }
   }

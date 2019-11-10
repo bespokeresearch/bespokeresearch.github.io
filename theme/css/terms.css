@@ -73,6 +73,24 @@ img::selection {
 img::-moz-selection {
   background: transparent; }
 
+section#contact ::placeholder {
+  font-weight: 700;
+  color: #ced4da;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+::selection {
+  background: #fed136;
+  text-shadow: none; }
+
+::selection {
+  background: #fed136;
+  text-shadow: none; }
+
+.alert-danger {
+  color: #a44a3fff;
+  background-color: #ced4da;
+  border-color: #a44a3fff; }
+
 #terms_body {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../img/header/terms-bg.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
