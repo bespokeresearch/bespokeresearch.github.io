@@ -75,10 +75,18 @@ Vue.component('send-job', {
 
       if(this.errors.length > 0){
         this.errorClassDisplay = '';
+        this.showValidation();
         return false;
       }
 
       this.sendJob();
+    },
+    showValidation: function(){
+        if(window.location.hash == '#send-valid'){
+            window.location.hash = '#send-valid-form';
+        }else {
+            window.location.hash = '#send-valid';
+        }
     },
     validEmail: function (email) {
       var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
