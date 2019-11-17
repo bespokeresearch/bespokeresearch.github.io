@@ -46,6 +46,9 @@ Vue.component('send-job', {
   },
   methods: {
     checkForm: function () {
+
+      gtag('event', 'attempt_order');
+
       this.errors = [];
       this.errorClassDisplay = 'd-none';
 
@@ -113,6 +116,8 @@ Vue.component('send-job', {
     uiSubmitSuccess: function(){
         this.formDivClass = 'd-none';
         this.messageSentDivClass = '';
+
+        gtag('event', 'order_sent');
     },
 
     uiUploadStart: function(){
