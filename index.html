@@ -10,6 +10,23 @@
 
       gtag('config', 'UA-141684358-1', { 'optimize_id': 'GTM-WNXG5HP'});
     </script>
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '567939510607366');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=567939510607366&ev=PageView&noscript=1"
+    /></noscript>
+    <script src="theme/js/events.js"></script>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
@@ -28,8 +45,6 @@
     <meta property="og:locale" content="en_US"/>
     <meta property="og:url" content="https://www.br8.ca/"/>
     <meta property="og:image" content="https://www.br8.ca/img/home-bg.png">
-
-
     <title>Bespoke Research Ad Infinitum</title>
 
     <link rel="icon" type="image/png" href="/theme/img/favicon.png" />
@@ -44,22 +59,7 @@
 
     <link href="theme/css/main.css" rel="stylesheet">
 
-    <!-- Facebook Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '567939510607366');
-      fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=567939510607366&ev=PageView&noscript=1"
-    /></noscript>
+
     <!-- End Facebook Pixel Code -->
 
   </head>
@@ -79,7 +79,7 @@
         <div class="intro-text">
           <div class="intro-heading text-uppercase">Bespoke Research</div>
           <div class="intro-lead-in">Focus on your business, let us handle the details.</div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger header-action-button" href="#services" onclick="gtag('event', 'tell_me_more');"><i class="fas fa-infinity"></i> &nbsp;Tell Me More</a>
+          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger header-action-button" href="#services" onclick="_et('tell_me_more');"><i class="fas fa-infinity"></i> &nbsp;Tell Me More</a>
         </div>
       </div>
     </header>
@@ -138,7 +138,7 @@
               </li>
               <li class="timeline-inverted">
                 <div class="timeline-image">
-                   <h4><a href="#send" class="timeline-action" onclick="gtag('event', 'send_task_123');">Send
+                   <h4><a href="#send" class="timeline-action" onclick="_et('send_task_123');">Send
                     <br>Your
                      <br>Task!</a></h4>
                 </div>
@@ -161,29 +161,29 @@
         </div>
         <div class="row">
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#send" onclick="gtag('event', 'send_task_mining_img');">
+            <a class="portfolio-link" data-toggle="modal" href="#send" onclick="_et('send_task_mining_img');">
               <img class="img-fluid" src="theme/img/portfolio/01-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4><a href="#send" class="service-action" onclick="gtag('event', 'send_task_mining_header');">Data mining</a></h4>
+              <h4><a href="#send" class="service-action" onclick="_et('send_task_mining_header');">Data mining</a></h4>
               <p class="text-muted">Research and collect data online, format it as a spreadsheet, document or summary presentation.</p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#send" onclick="gtag('event', 'send_task_conv_img');">
+            <a class="portfolio-link" data-toggle="modal" href="#send" onclick="_et('send_task_conv_img');">
               <img class="img-fluid" src="theme/img/portfolio/02-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4><a href="#send" class="service-action" onclick="gtag('event', 'send_task_conv_header');">Document conversion</a></h4>
+              <h4><a href="#send" class="service-action" onclick="_et('send_task_conv_header');">Document conversion</a></h4>
               <p class="text-muted">Accomplish complex document conversion tasks from and to formats like Word, Excel, PDF, CSV, plain text.</p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
-            <a class="portfolio-link" data-toggle="modal" href="#send" onclick="gtag('event', 'send_task_custom_img');">
+            <a class="portfolio-link" data-toggle="modal" href="#send" onclick="_et('send_task_custom_img');">
               <img class="img-fluid" src="theme/img/portfolio/04-thumbnail.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4><a href="#send" class="service-action" onclick="gtag('event', 'send_task_custom_header');">Custom</a></h4>
+              <h4><a href="#send" class="service-action" onclick="_et('send_task_custom_header');">Custom</a></h4>
               <p class="text-muted">Looking for different software solution? Send us your task and we will be glad to provide you an estimate!</p>
             </div>
           </div>
@@ -227,10 +227,10 @@
           <div class="col-md-4">
             <ul class="list-inline quicklinks">
                 <li class="list-inline-item">
-                    <a href="/privacy.html" target="_blank">Privacy Policy</a>
+                    <a href="/privacy.html" target="_blank" onclick="_et('privacy');">Privacy Policy</a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="/terms.html" target="_blank">Terms of Service</a>
+                    <a href="/terms.html" target="_blank" onclick="_et('terms');">Terms of Service</a>
                 </li>
             </ul>
           </div>
@@ -304,7 +304,7 @@
                         <div class="form-check">
                           <input v-model="formDataAgreeBox" :disabled="formDisabled" class="form-check-input big-checkbox" type="checkbox" value="" id="tosCheck">
                           <label class="form-check-label" for="tosCheck">
-                            I agree to <a href="/terms.html" target="_blank">Terms of Service</a> and <a href="/privacy.html" target="_blank">Privacy Policy</a>
+                            I agree to <a href="/terms.html" target="_blank" onclick="_et('terms');">Terms of Service</a> and <a href="/privacy.html" target="_blank" onclick="_et('privacy');">Privacy Policy</a>
                           </label>
                         </div>
                       </div>
