@@ -85,6 +85,13 @@ Vue.component('send-job', {
 
       this.sendJob();
     },
+    showError: function(errorText){
+        this.errors.push(errorText);
+        this.errorClassDisplay = '';
+        this.showValidation();
+        this.uiSubmitReset();
+        this.uiUploadHide();
+    },
     showValidation: function(){
         if(window.location.hash == '#send-valid'){
             window.location.hash = '#send-valid-form';
@@ -114,6 +121,11 @@ Vue.component('send-job', {
         this.submitButtonIconClass = 'fa fa-spinner fa-spin';
     },
 
+    uiSubmitReset: function(){
+        this.formDisabled = false;
+        this.submitButtonIconClass = 'fas fa-paper-plane fa-sm';
+    },
+
     uiSubmitSuccess: function(){
         this.formDivClass = 'd-none';
         this.messageSentDivClass = '';
@@ -135,6 +147,12 @@ Vue.component('send-job', {
         this.uploadSuccessClassDisplay = 'd-none';
         this.uploadProgressAlertClass = 'alert-success'
         this.uploadProgressAlertText = 'File successfully uploaded'
+    },
+    uiUploadHide: function(){
+        this.uploadProgressBarClassDisplay ='d-none';
+        this.uploadProgressDivStyle = {
+            'display': 'none'
+        };
     },
 
     uploadFileFake: function(resolve, reject, data){
@@ -192,6 +210,17 @@ Vue.component('send-job', {
                 .then(function(values) {
                     console.log(values);
                     self.uiSubmitSuccess();
+                })
+                .catch((reason) => {
+
+                    if(reason.response && reason.response.data &&
+                        reason.response.data.includes('EntityTooLarge')
+                    ){
+                        self.showError('Please upload file smaller than 10mb.')
+                        self.$refs.jobFile.value = '';
+                        self.filename = 'Choose file (up to 10mb)';
+                    }
+                    console.log('Handle rejected promise ('+reason+') here.');
                 });
         })
     },
@@ -297,7 +326,6 @@ Vue.component('send-job', {
             headers: {'x-api-key': self.apiKey, 'Content-Type': 'multipart/form-data'},
             data: jobFormData
         }).then(function(res) {
-            self.uiSubmitSuccess();
             console.log('Task submitted successfully');
             resolve('Task submitted successfully')
         }).catch(function(error) {
