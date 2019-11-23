@@ -300,6 +300,10 @@ Vue.component('send-job', {
                 reject(error)
             });
         }
+        else
+        {
+            resolve('No file uploaded')
+        }
     },
 
     sendJobDetails: function(resolve, reject, data){
