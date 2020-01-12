@@ -1,0 +1,22 @@
+* { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; -moz-font-feature-settings: "liga" on; margin: 0; }
+
+body { font-family: "Lora", Georgia, sans-serif; font-weight: 400; }
+
+h1.post-title, h2.post-title, .post-content h2, .post-content h3, .post-content h4, .logo-name, .sidebar-widget-title, #search-term { font-family: "Oswald", Arial, serif; font-weight: 600; }
+
+.post-date, .return { font-family: "Oswald", Arial, serif; font-weight: 400; }
+
+#content { width: 55rem; margin: 0 auto; padding: 0 0 4.688rem 0; margin-top: 6.25rem; color: #666666;}
+#content p { font-size: 1.188rem; line-height: 1.875rem; margin: 0 0 2.188rem 0; padding: 0; letter-spacing: -0.00625rem; }
+
+@media (max-width: 720px) { #content { width: auto; max-width: 90%; padding-bottom: 0; margin-top: 0; } }
+
+article.post {padding-bottom: 30px;}
+
+article.post h2.post-title, article.post h2.post-title a  { margin-top: 0; font-weight: 600; letter-spacing: -1px; font-size: 2.5rem; line-height: 2.875rem; color: #333333; text-decoration: none; padding-bottom: 20px;}
+
+article.post .post-excerpt, article.post .post-content   { font-size: 1.188rem; line-height: 1.875rem; margin: 0 0 2.188rem 0; padding: 0; letter-spacing: -0.00625rem; }
+article.post .post-date { font-size: 0.6875rem; line-height: 0.6875rem; text-transform: uppercase; margin-bottom: 0.3125rem; letter-spacing: 0.03125rem; color: #999999; }
+
+article.post .post-excerpt a  { color:#FF6666; border-bottom: 1px dotted #FF6666; text-decoration: none;}
+article.post .post-excerpt a:hover { color:#FF6666; border-bottom: 1px dotted #FF6666; text-decoration: none;}

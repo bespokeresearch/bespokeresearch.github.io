@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="english">
+
+<head>
+      <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+
+    <title>Combining data in Excel</title>
+
+    <meta name="description" content="Simple solutions for complex problems" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin" />
+
+
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='stylesheet' id='fonts-css'  href='//fonts.googleapis.com/css?family=Lora%3A400%2C400italic%7COswald%3A400%2C600&#038;ver=2.6.2' type='text/css' media='screen' />
+    <link href="http://localhost:8000/theme/blog/css/blog-main.css" rel="stylesheet">
+
+
+  <link href="http://localhost:8000/" rel="canonical" />
+
+  <!-- Feed -->
+
+  <link href="http://localhost:8000/theme/css/style.css" type="text/css" rel="stylesheet" />
+
+  <!-- Code highlight color scheme -->
+      <link href="http://localhost:8000/theme/css/code_blocks/github.css" rel="stylesheet">
+
+
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300' rel='stylesheet' type='text/css' />
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+  <link href="http://localhost:8000/blog/articles/excel-vlookup.html" rel="canonical" />
+
+    <meta name="description" content="Why did the Excel import the table? Because it was pivotal. We all love spreadsheets, helps us do the calculations. Income, account...">
+
+    <meta name="author" content="Bespoke Research">
+
+
+
+
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="Bespoke Research Ad Infinitum"/>
+<meta property="og:title" content="Combining data in Excel"/>
+<meta property="og:description" content="Why did the Excel import the table? Because it was pivotal. We all love spreadsheets, helps us do the calculations. Income, account..."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://localhost:8000/blog/articles/excel-vlookup.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-12-21 10:20:00-05:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="http://localhost:8000/author/bespoke-research.html">
+<meta property="article:section" content="Blog"/>
+<meta property="og:image" content="http://localhost:8000/img/home-bg.png">
+
+<!-- Twitter Card -->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Combining data in Excel",
+  "headline": "Combining data in Excel",
+  "datePublished": "2019-12-21 10:20:00-05:00",
+  "dateModified": "",
+  "author": {
+    "@type": "Person",
+    "name": "Bespoke Research",
+    "url": "http://localhost:8000/author/bespoke-research.html"
+  },
+  "image": "http://localhost:8000/img/home-bg.png",
+  "url": "http://localhost:8000/blog/articles/excel-vlookup.html",
+  "description": "Why did the Excel import the table? Because it was pivotal. We all love spreadsheets, helps us do the calculations. Income, account..."
+}
+</script>
+</head>
+<!-- TODO : Body class -->
+<body class="home-template">
+
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header id="post-header" class="has-cover">
+      <div class="inner">
+        <nav id="navigation">
+            <span id="home-button" class="nav-button">
+                <a class="home-button" href="http://localhost:8000/" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+            </span>
+          <span id="menu-button" class="nav-button">
+            <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
+          </span>
+        </nav>
+        <h1 class="post-title">Combining data in Excel</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="http://localhost:8000/author/bespoke-research.html">Bespoke Research</a>
+            | <time datetime="Sat 21 December 2019">Sat 21 December 2019</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <div class="post-cover cover" style="background-image: url('http://localhost:8000/img/home-bg.png')">
+      </div>
+    </header>
+
+
+  <section id="wrapper">
+    <a class="hidden-close"></a>
+
+    <!-- Post content -->
+    <main id="content" role="main">
+        <article class="post">
+        <div class="inner">
+            <section class="post-content">
+                <p><em>Why did the Excel import the table? Because it was pivotal.</em></p>
+<p>We all love spreadsheets, helps us do the calculations. Income, account receivables, expenses - anything you throw at it Excel will happily take and give you back results.</p>
+<p>Sometimes you have a dataset that has a column, explanation for which is located in a different dataset. For example you have a list of business names along with NAICS code,
+but without NAICS code explanation, which tells you what industry is this business from. NAICS is 6 digit code and unless you work extensively with it, you won't remember what does it mean.
+You can always download <a href="https://www.statcan.gc.ca/eng/subjects/standard/naics/2017/index">full list of NAICS codes</a> from Stats Canada and paste it in a separate sheet.</p>
+<p>Fortunately you can easily get two datasets combined into one using handy <a href="https://support.office.com/en-us/article/vlookup-function-0bbc8083-26fe-4963-8ab8-93a18ad188a1">VLOOKUP</a> function.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>NAICS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ABC Inc</td>
+<td>334512</td>
+</tr>
+<tr>
+<td>Acme Org</td>
+<td>326160</td>
+</tr>
+<tr>
+<td>Box Co</td>
+<td>451120</td>
+</tr>
+</tbody>
+</table>
+<p>[businesses]</p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Class Title</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>334512</td>
+<td>Measuring, medical and controlling devices manufacturing</td>
+</tr>
+<tr>
+<td>326160</td>
+<td>Plastic bottle manufacturing</td>
+</tr>
+<tr>
+<td>451120</td>
+<td>Hobby, toy and game stores</td>
+</tr>
+<tr>
+<td>...</td>
+<td></td>
+</tr>
+<tr>
+<td>[naics]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>If you use the following formula in the cell C2 of the "businesses" sheet, you can get NAICS description conveniently listed next to each business name</p>
+<div class="highlight"><pre><span></span><span class="o">=</span><span class="nt">VLOOKUP</span><span class="o">(</span><span class="nt">B2</span><span class="o">,</span> <span class="nt">naics</span><span class="o">!</span><span class="nt">A</span><span class="p">:</span><span class="nd">B</span><span class="o">,</span> <span class="nt">2</span><span class="o">,</span> <span class="nt">FALSE</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Don't forget to double click on a small square in the bottom right corner of the cell, so that Excel can apply the formula to all cells in the row.</p>
+<p>As a side note, this will work same way in Google Sheets as well.</p>
+            </section>
+
+            <section class="post-info">
+                <div class="post-share">
+                    <a class="twitter" href="https://twitter.com/share?text=Combining data in Excel&amp;url=http://localhost:8000/blog/articles/excel-vlookup.html" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <i class="ic ic-twitter"></i><span class="hidden">Twitter</span>
+                    </a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/blog/articles/excel-vlookup.html" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <i class="ic ic-facebook"></i><span class="hidden">Facebook</span>
+                    </a>
+                    <a class="googleplus" href="https://plus.google.com/share?url=http://localhost:8000/blog/articles/excel-vlookup.html" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <i class="ic ic-googleplus"></i><span class="hidden">Google+</span>
+                    </a>
+                    <div class="clear"></div>
+                </div>
+
+
+                <div class="clear"></div>
+
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
+      <!-- TODO : Body class -->
+    <div id="body-class" style="display: none;" class=""></div>
+
+    <footer id="footer">
+      <div class="inner">
+
+      </div>
+    </footer>
+  </section>
+
+  <script type="text/javascript" src="http://localhost:8000/theme/js/script.js"></script>
+
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-141684358-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+</body>
+</html>
